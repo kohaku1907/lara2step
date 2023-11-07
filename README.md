@@ -18,14 +18,14 @@ composer require kohaku1907/lara2step
 Publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="lara2step-migrations"
+php artisan vendor:publish --tag="2step-migrations"
 php artisan migrate
 ```
 
 Publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="lara2step-config"
+php artisan vendor:publish --tag="2step-config"
 ```
 
 This is the contents of the published config file:
@@ -47,7 +47,7 @@ return [
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="lara2step-views"
+php artisan vendor:publish --tag="2step-views"
 ```
 
 ## Usage
@@ -85,7 +85,7 @@ Route::get('/dashboard', function () {
     // Only verified users...
 })->middleware('2step');
 ```
-The middleware will redirect the user to the named route 2step.confirm by default if the user is not verified. Lara2step comes with TwoStepController and default views for quick start. You can publish the views using `php artisan vendor:publish --tag="lara2step-views"` and customize them to your needs.
+The middleware will redirect the user to the named route 2step.confirm by default if the user is not verified. Lara2step comes with TwoStepController and default views for quick start. You can publish the views using `php artisan vendor:publish --tag="2step-views"` and customize them to your needs.
 
 ```php
 use Kohaku1907\Lara2step\Http\Controllers\TwoStepController;
