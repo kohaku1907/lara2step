@@ -36,7 +36,12 @@ trait TwoStepAuthentication
      */
     public function twoStepAuth(): MorphOne
     {
-        return $this->morphOne(Models\TwoStepAuth::class, 'authenticatable');
+        return $this->morphOne(Models\TwoStepAuth::class, 'authenticatable')
+            ->withDefault(static function (Models\TwoStepAuth $model) : Models\TwoStepAuth  {
+                return $model->fill([
+                    'enabled_at' => null,
+                ]);
+            });
     }
 
     /**
