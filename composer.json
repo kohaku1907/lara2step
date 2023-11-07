@@ -1,0 +1,65 @@
+{
+    "name": "kohaku1907/laravel-2step",
+    "description": "This is my package laravel-2step",
+    "keywords": [
+        "kohaku1907",
+        "laravel",
+        "laravel-2step"
+    ],
+    "homepage": "https://github.com/kohaku1907/laravel-2step",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tri Nguyen",
+            "email": "nguyenmtri11@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "spatie/laravel-package-tools": "^1.14.0",
+        "illuminate/contracts": "^10.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^7.8",
+        "orchestra/testbench": "^8.8",
+        "pestphp/pest": "^2.20",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kohaku1907\\Laravel2step\\": "src/",
+            "Kohaku1907\\Laravel2step\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kohaku1907\\Laravel2step\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kohaku1907\\Laravel2step\\Laravel2stepServiceProvider"
+            ],
+            "aliases": {
+                "Laravel2step": "Kohaku1907\\Laravel2step\\Facades\\Laravel2step"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
