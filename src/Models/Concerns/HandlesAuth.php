@@ -115,7 +115,7 @@ trait HandlesAuth
      *
      * @return void
      */
-    protected function resetAttempt(): void
+    public function resetAttempt(): void
     {
         $this->code = $this->generateCode($this->codeLength, $this->isNumericCode);
         $this->count = 0;
