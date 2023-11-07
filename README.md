@@ -54,8 +54,8 @@ php artisan vendor:publish --tag="2step-views"
 
 The Lara2Step package can be integrated into your Laravel application by following these steps:
 
-1. Add the `TwoStepAuthenticatable` trait to your `User` model:
-2. Add the `TwoStepAuthenticatable` trait to your `User` model:
+1. Implement the `TwoStepAuthenticatable` contract to your `User` model:
+2. Add the `TwoStepAuthentication` trait to your `User` model:
 
 Here is an example of a `User` model:
 
