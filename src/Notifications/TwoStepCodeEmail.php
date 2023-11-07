@@ -1,6 +1,6 @@
 <?php
 
-namespace Kohaku1907\Laravel2step\Notifications;
+namespace Kohaku1907\Lara2step\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

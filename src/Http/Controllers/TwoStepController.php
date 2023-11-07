@@ -1,13 +1,13 @@
 <?php
 
-namespace Kohaku1907\Laravel2step\Http\Controllers;
+namespace Kohaku1907\Lara2step\Http\Controllers;
 
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Kohaku1907\Laravel2step\Models\TwoStepAuth;
+use Kohaku1907\Lara2step\Models\TwoStepAuth;
 
 class TwoStepController extends Controller
 {

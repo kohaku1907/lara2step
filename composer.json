@@ -1,12 +1,17 @@
 {
-    "name": "kohaku1907/laravel-2step",
-    "description": "This is my package laravel-2step",
+    "name": "kohaku1907/lara2step",
+    "description": "This is my package lara2step",
     "keywords": [
         "kohaku1907",
         "laravel",
-        "laravel-2step"
+        "laravel-2step",
+        "2step",
+        "2fa",
+        "two-factor",
+        "two-step",
+        "lara2step"
     ],
-    "homepage": "https://github.com/kohaku1907/laravel-2step",
+    "homepage": "https://github.com/kohaku1907/lara2step",
     "license": "MIT",
     "authors": [
         {
@@ -29,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Kohaku1907\\Laravel2step\\": "src/",
-            "Kohaku1907\\Laravel2step\\Database\\Factories\\": "database/factories/"
+            "Kohaku1907\\Lara2step\\": "src/",
+            "Kohaku1907\\Lara2step\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kohaku1907\\Laravel2step\\Tests\\": "tests/"
+            "Kohaku1907\\Lara2step\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -53,10 +58,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Kohaku1907\\Laravel2step\\Laravel2stepServiceProvider"
+                "Kohaku1907\\Lara2step\\Lara2stepServiceProvider"
             ],
             "aliases": {
-                "Laravel2step": "Kohaku1907\\Laravel2step\\Facades\\Laravel2step"
+                "Lara2step": "Kohaku1907\\Lara2step\\Facades\\Lara2step"
             }
         }
     },

@@ -1,10 +1,10 @@
 <?php
 
-namespace Kohaku1907\Laravel2step\Models;
+namespace Kohaku1907\Lara2step\Models;
 
 use \Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Kohaku1907\Laravel2step\Models\Concerns\HandlesAuth;
+use Kohaku1907\Lara2step\Models\Concerns\HandlesAuth;
 
 
 class TwoStepAuth extends Model

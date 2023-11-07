@@ -1,66 +1,93 @@
-# This is my package laravel-2step
+# Lara2Step
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/kohaku1907/laravel-2step.svg?style=flat-square)](https://packagist.org/packages/kohaku1907/laravel-2step)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/kohaku1907/laravel-2step/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/kohaku1907/laravel-2step/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/kohaku1907/laravel-2step/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/kohaku1907/laravel-2step/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/kohaku1907/laravel-2step.svg?style=flat-square)](https://packagist.org/packages/kohaku1907/laravel-2step)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kohaku1907/lara2step.svg?style=flat-square)](https://packagist.org/packages/kohaku1907/lara2step)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/kohaku1907/lara2step/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/kohaku1907/lara2step/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/kohaku1907/lara2step/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/kohaku1907/lara2step/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/kohaku1907/lara2step.svg?style=flat-square)](https://packagist.org/packages/kohaku1907/lara2step)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-2step.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-2step)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+Laravel2Step is a Laravel package that provides two-step authentication to your Laravel applications.
 
 ## Installation
 
-You can install the package via composer:
+Install the package via composer:
 
 ```bash
-composer require kohaku1907/laravel-2step
+composer require kohaku1907/lara2step
 ```
 
-You can publish and run the migrations with:
+Publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-2step-migrations"
+php artisan vendor:publish --tag="lara2step-migrations"
 php artisan migrate
 ```
 
-You can publish the config file with:
+Publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-2step-config"
+php artisan vendor:publish --tag="lara2step-config"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
+    'default_channel' => 'email', // email, sms
+    'table_name' => 'two_step_auths', // table name
+    'code_length' => 4, // code length
+    'numeric_code' => false, // numeric code only
+    'confirm_key' => '_2fa', // session key name
+    'timeout' => 300, // timeout of verifed session in minutes
+    'max_attempts' => 5, // max attempts
+    'exceed_countdown_minutes' => 1440, // exceed countdown in minutes
+    'resend_code_seconds' => 60, // resend code in seconds
 ];
 ```
 
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="laravel-2step-views"
+php artisan vendor:publish --tag="lara2step-views"
 ```
 
 ## Usage
 
+The Laravel2Step package can be integrated into your Laravel application by following these steps:
+
+1. Add the `TwoStepAuthenticatable` trait to your `User` model:
+2. Add the `TwoStepAuthenticatable` trait to your `User` model:
+
+Here is an example of a `User` model:
+
 ```php
-$laravel2step = new Kohaku1907\Laravel2step();
-echo $laravel2step->echoPhrase('Hello, Kohaku1907!');
+use Kohaku1907\Lara2step\Contracts\TwoStepAuthenticatable;
+use Kohaku1907\Lara2step\TwoStepAuthentication;
+
+class User extends Authenticatable implements TwoStepAuthenticatable {
+    use TwoStepAuthentication;
+
+    public function registerTwoStepAuthentication(): void
+    {
+        $this->configureForceEnable('email');
+        $this->configureCodeFormat(length: 4, numericCode: true);
+    }
+}
+```
+In the `registerTwoStepAuthentication` method, you can configure the two-step authentication settings for the user. The following methods are available:
+
+- `configureForceEnable(string $channel)`: Force enable two-step authentication for the user. The user will not be able to disable two-step authentication.
+- `configureCodeFormat(int $length, bool $numericCode)`: Configure the code format for the user. The code length and whether the code should be numeric or not can be configured.
+
+3. Add the alias middleware to routes that should be protected by two-step authentication:
+
+```php
+Route::get('/dashboard', function () {
+    // Only verified users...
+})->middleware('2step');
 ```
 
-## Testing
 
-```bash
-composer test
-```
+
 
 ## Changelog
 
@@ -69,15 +96,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [Tri Nguyen](https://github.com/kohaku1907)
-- [All Contributors](../../contributors)
 
 ## License
 

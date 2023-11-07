@@ -1,12 +1,12 @@
 <?php
 
-namespace Kohaku1907\Laravel2step;
+namespace Kohaku1907\Lara2step;
 
 use Illuminate\Routing\Router;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class Laravel2stepServiceProvider extends PackageServiceProvider
+class Lara2stepServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

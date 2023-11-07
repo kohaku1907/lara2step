@@ -1,5 +1,5 @@
 <?php
 
-use Kohaku1907\Laravel2step\Tests\TestCase;
+use Kohaku1907\Lara2step\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

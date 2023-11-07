@@ -1,11 +1,11 @@
 <?php
 
-namespace Kohaku1907\Laravel2step\Models\Concerns;
+namespace Kohaku1907\Lara2step\Models\Concerns;
 
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
-use Kohaku1907\Laravel2step\Notifications\TwoStepCodeEmail;
+use Kohaku1907\Lara2step\Notifications\TwoStepCodeEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait HandlesAuth

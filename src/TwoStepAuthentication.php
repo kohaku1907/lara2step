@@ -1,6 +1,6 @@
 <?php
 
-namespace Kohaku1907\Laravel2step;
+namespace Kohaku1907\Lara2step;
 
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 

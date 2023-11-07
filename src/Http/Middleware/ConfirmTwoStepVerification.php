@@ -1,10 +1,10 @@
 <?php
 
-namespace Kohaku1907\Laravel2step\Http\Middleware;
+namespace Kohaku1907\Lara2step\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Kohaku1907\Laravel2step\Contracts\TwoStepAuthenticatable;
+use Kohaku1907\Lara2step\Contracts\TwoStepAuthenticatable;
 
 class ConfirmTwoStepVerification
 {
