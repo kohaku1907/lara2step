@@ -85,6 +85,19 @@ Route::get('/dashboard', function () {
     // Only verified users...
 })->middleware('2step');
 ```
+The middleware will redirect the user to the named route 2step.confirm by default if the user is not verified. Lara2step comes with TwoStepController and default views for quick start. You can publish the views using `php artisan vendor:publish --tag="lara2step-views"` and customize them to your needs.
+
+```php
+use Kohaku1907\Lara2step\Http\Controllers\TwoStepController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('2fa-confirm', [TwoStepController::class, 'form'])
+    ->name('2step.confirm');
+Route::post('2fa-confirm', [TwoStepController::class, 'confirm']);
+Route::post('2fa-resend', [TwoStepController::class, 'resend'])
+    ->name('2step.resend');
+```
+
 
 
 
