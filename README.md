@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/kohaku1907/lara2step/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/kohaku1907/lara2step/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/kohaku1907/lara2step.svg?style=flat-square)](https://packagist.org/packages/kohaku1907/lara2step)
 
-Laravel2Step is a Laravel package that provides two-step authentication to your Laravel applications.
+Lara2Step is a Laravel package that provides two-step authentication to your Laravel applications.
 
 ## Installation
 
@@ -52,7 +52,7 @@ php artisan vendor:publish --tag="lara2step-views"
 
 ## Usage
 
-The Laravel2Step package can be integrated into your Laravel application by following these steps:
+The Lara2Step package can be integrated into your Laravel application by following these steps:
 
 1. Add the `TwoStepAuthenticatable` trait to your `User` model:
 2. Add the `TwoStepAuthenticatable` trait to your `User` model:
